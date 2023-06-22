@@ -17,7 +17,7 @@ export const register=(password,email)=>(dispatch)=>{
     dispatch({
         type:LOADING
     })
-    console.log(back_url+"/api/auth/register",998)
+
     axios
         .post(back_url+"/api/auth/register",body,config)
         .then((res)=>{

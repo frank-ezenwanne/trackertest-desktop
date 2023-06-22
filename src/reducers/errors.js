@@ -8,6 +8,7 @@ const initialState = {
 export default function errors(state=initialState, action){
     switch (action.type){
         case GET_ERRORS:
+            console.log(9997)
             return {
                 msg: action.payload.msg,
                 status: action.payload.status,

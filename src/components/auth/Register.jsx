@@ -69,17 +69,17 @@ class Register extends Component {
             <form onSubmit = {this.onsubmit} className="p-4">
             <h3 className='mb-3'>Register</h3>
                     <div className="mb-3">
-                        <label for="email" className="form-label">Email address</label>
+                        <label htmlFor="email" className="form-label">Email address</label>
                         <input  name= 'email' type="email" className="form-control" id="email" placeholder="Enter Email"/>
                     </div>
 
                     <div className="mb-3">
-                        <label for="password1" className="form-label">Password</label>
-                        <input name = 'password1' type="password" className="form-control" id="password1" placeholder="Password"/>
+                        <label htmlFor="password1" className="form-label">Password</label>
+                        <input name = 'password' type="password" className="form-control" id="password1" placeholder="Password"/>
                     </div>
 
                     <div className="mb-3">
-                        <label for="password2" className="form-label">Confirm Password</label>
+                        <label htmlFor="password2" className="form-label">Confirm Password</label>
                         <input name = 'password2' type="password" className="form-control" id="password2" placeholder="Password"/>
                     </div>
 

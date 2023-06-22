@@ -47,16 +47,16 @@ class Login extends Component{
        successfully activated..You can now login</div>)
 
         return (
-            <div style ={{'backgroundColor':'rgb(245,245,245)','marginTop':'10%','marginLeft':'35%','marginRight':'35%'}} className=' card border border-4 border-success d-flex justify-content-center margin-auto '>
+            <div style ={{'backgroundColor':'rgb(245,245,245)','marginTop':'10%','marginLeft':'35%','marginRight':'35%'}} className=' card border border-4 border-success d-flex justify-content-center'>
             <form onSubmit = {this.onsubmit} className="p-4">
             <h3 className='mb-3'>Login</h3>
                 <div className="mb-3">
-                    <label for="email" className="form-label">Email address</label>
+                    <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="email" placeholder="Enter Email"/>
                 </div>
 
                 <div className="mb-3">
-                    <label for="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" id="password" placeholder="Password"/>
                 </div>
 
