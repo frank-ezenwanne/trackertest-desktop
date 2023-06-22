@@ -70,17 +70,17 @@ class Register extends Component {
             <h3 className='mb-3'>Register</h3>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email address</label>
-                        <input  name= 'email' type="email" className="form-control" id="email" placeholder="Enter Email"/>
+                        <input onChange = {this.onchange} value= {email} name= 'email' type="email" className="form-control" id="email" placeholder="Enter Email"/>
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="password1" className="form-label">Password</label>
-                        <input name = 'password' type="password" className="form-control" id="password1" placeholder="Password"/>
+                        <label htmlFor="password" className="form-label">Password</label>
+                        <input onChange = {this.onchange} value= {password} name = 'password' type="password" className="form-control" id="password" placeholder="Password"/>
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="password2" className="form-label">Confirm Password</label>
-                        <input name = 'password2' type="password" className="form-control" id="password2" placeholder="Password"/>
+                        <input onChange = {this.onchange} value= {password2} name = 'password2' type="password" className="form-control" id="password2" placeholder="Password"/>
                     </div>
 
                     <button type="submit" className="btn btn-success">Register</button>

@@ -13,6 +13,7 @@ export const register=(password,email)=>(dispatch)=>{
     }
 
     const body = JSON.stringify({password,email})
+    console.log(body,8867)
 
     dispatch({
         type:LOADING

@@ -52,12 +52,12 @@ class Login extends Component{
             <h3 className='mb-3'>Login</h3>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" placeholder="Enter Email"/>
+                    <input onChange = {this.onchange} name = 'email' value= {email} type="email" className="form-control" id="email" placeholder="Enter Email"/>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" placeholder="Password"/>
+                    <input onChange = {this.onchange} name = 'password' value= {password} type="password" className="form-control" id="password" placeholder="Password"/>
                 </div>
 
                 <button type="submit" className="btn btn-success">Sign in</button>
