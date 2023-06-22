@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser,PermissionsMixin,User
+    BaseUserManager, AbstractBaseUser,PermissionsMixin
 )
 
 from django.utils import timezone

@@ -22,7 +22,6 @@ class UserAPI(generics.RetrieveAPIView):
 
 
 class LoginAPI(APIView):
-    #permission_classes=[permissions.AllowAny]
     def get_serializer_context(self):
         """
         Extra context provided to the serializer class.

@@ -1,7 +1,7 @@
 import React, {Fragment,useState,useRef} from "react"
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
-import {logout} from "../actions/auth"
+import {logout} from "../../actions/auth"
 
 
 function Nav(props){
@@ -111,7 +111,7 @@ function Nav(props){
 const mapStateToProps = (state) => {
 	return {
 	isAuthenticated : state.auth.isAuthenticated,
-	email:state.auth.user.email,
+	email:state.auth.user.email }
 }
 
 export default connect(mapStateToProps,{logout})(Nav)
