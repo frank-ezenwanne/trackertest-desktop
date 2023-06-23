@@ -94,7 +94,7 @@ function Nav(props){
 					<Fragment>
 					<div className = "side-bar-combo">
 					
-						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/login'>Login</Link></span>
+						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/'>Login</Link></span>
 						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/register'>Register</Link></span>
 						
 					</div>

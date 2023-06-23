@@ -36,7 +36,7 @@ class Login extends Component{
 
 
     render(){
-            if(this.props.isAuthenticated){
+          if(this.props.isAuthenticated){
            return <Navigate to = "/tasks" />
          }
          if(this.props.user_active === false){ //false means logged in but not fully active unlike no_value which means not logged in at all

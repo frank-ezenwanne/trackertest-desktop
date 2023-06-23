@@ -39,7 +39,7 @@ const VerifyToken = (props) =>{
             <div style ={{'backgroundColor':'rgb(245,245,245)','marginTop':'10%','marginLeft':'35%','marginRight':'35%'}} className=' card border border-4 border-success d-flex justify-content-center'>
                 <h3 className='text-black login-heading'> Account Activation </h3>
                 {props.token_resent ? <div className='text-primary'>New Token Sent!</div> : null}
-                <form onSubmit={onsubmit} >
+                <form className ='p-3' onSubmit={onsubmit} >
                     <div className='form-field'>
                         <div>
                             <label className='text-black ' htmlFor="token">Enter Token from email </label>

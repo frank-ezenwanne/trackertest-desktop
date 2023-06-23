@@ -39,7 +39,7 @@ export const UpdateReview = (props) =>{
                     </div>
 
                     <div>
-                        <button className='btn btn-success'>Submit</button>
+                        <button type='submit' className='btn btn-success'>Submit</button>
                     </div>
                 </form>
 

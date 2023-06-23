@@ -13,7 +13,6 @@ export const register=(password,email)=>(dispatch)=>{
     }
 
     const body = JSON.stringify({password,email})
-    console.log(body,8867)
 
     dispatch({
         type:LOADING
@@ -72,7 +71,8 @@ export const login = (email, password) => (dispatch) => {
                 dispatch({
                     type:LOADED
                 })
-                dispatch(returnErrors(err.response.data,err.response.status))
+                console.log(err,996)
+                dispatch(returnErrors(err.response?.data,err.response?.status))
             }
         )
 }
