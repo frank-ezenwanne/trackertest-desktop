@@ -1,23 +1,33 @@
 import React, {useState, useEffect} from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {connect} from "react-redux"
-import {postReview} from "../actions/auth"
+import {updateReview} from "../actions/auth"
+import { getOneReview } from '../actions/tasks'
+import { useNavigate } from 'react-router-dom'
 
-export const CreateReview = (props) =>{
+export const UpdateReview = (props) =>{
+    const navigate = useNavigate()
 
     const [review , setReview ] = useState({title:'',content:''})
     onsubmit = (e) => {
         e.preventDefault()
-        props.postReview(title, content)
+        await props.updateReview(title, content)
+            .then(()=>{
+                navigate(`/api/getreview/${review.id}`)
+            })
     }
 
     useEffect(()=>{
+        await props.getOneReview()
+        .then(()=>{
+            setReview(props.review)
+        })
+    },[props.review])
 
-    },[props])
-    
+
     return(
         <div style =''>
-                <h3>Write a Review</h3>
+                <h3>Edit a Review</h3>
                 <form onSubmit={onsubmit}>
                     <div className='form-group mb-2 '>
                         <label htmlFor="title" className="form-label">Title</label>
@@ -51,7 +61,13 @@ export const CreateReview = (props) =>{
     )
 }
 
+const mapStateToProps = (state) => {
+	return {
+	    review: state.tasks.review
+   }
+}
 
-export default connect(mapStateToProps,{postReview})(CreateReview)
+
+export default connect(mapStateToProps,{updateReview,getOneReview})(UpdateReview)
 
 

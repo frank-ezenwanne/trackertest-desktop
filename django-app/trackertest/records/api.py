@@ -81,7 +81,7 @@ class StatsAPI(APIView):
         serializer = StatSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response({'timer':serializer.data})
+        return Response({'onestat':serializer.data})
 
 class StatsClickAPI(APIView):
     permission_classes = [IsAuthenticated,]

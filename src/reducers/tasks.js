@@ -13,3 +13,72 @@ import {
 }
 
 from '../actions/types'
+
+const initialState = {
+    reviews: '',
+    review:'',
+    timers:'',
+    stats:'',
+    onestat:'',
+    plan:'',
+    plans:'',
+
+}
+
+export default function(state=initialState,action){
+    switch(action.type){
+        case ALL_REVIEWS_FETCHED:
+            return{
+                ...state,
+                reviews:action.payload.reviews
+            }
+
+        case REVIEW_UPDATED:
+        case REVIEW_RETRIEVED:
+        case REVIEW_POSTED:
+            return {
+                ...state,
+                review:action.payload.review
+            }
+
+        case ALL_STATS_FETCHED:
+            return {
+                ...state,
+                timers:action.payload.timers
+            }
+        
+        case STAT_POSTED:
+            return {
+                ...state,
+                onestat:action.payload.onestat
+            }
+
+        case ALL_CLICKS_FETCHED:
+            return {
+                ...state,
+                stats:action.payload.stats
+            }
+
+            case ALL_REVIEWS_FETCHED:
+                return{
+                    ...state,
+                    reviews:action.payload.reviews
+                }
+    
+        case PLAN_UPDATED:
+        case PLAN_POSTED:
+        case PLAN_RETRIEVED:
+            return {
+                ...state,
+                plan:action.payload.plan
+            }
+
+        case ALL_PLANS_FETCHED:
+            return {
+                ...state,
+                plans:action.payload.plans
+            }
+
+        
+    }
+}
