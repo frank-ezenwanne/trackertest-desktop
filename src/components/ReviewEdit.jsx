@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {connect} from "react-redux"
-import {updateReview} from "../actions/auth"
-import { getOneReview } from '../actions/tasks'
+import {updateReview, getOneReview} from "../actions/tasks"
 import { useNavigate } from 'react-router-dom'
 
 export const UpdateReview = (props) =>{

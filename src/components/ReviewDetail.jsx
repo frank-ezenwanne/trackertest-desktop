@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from "react-redux"
-import {getOneReview} from "../actions/auth"
+import {getOneReview} from "../actions/tasks"
 
 export const ReviewDetail = (props) =>{
     const [review , setReview ] = useState([])

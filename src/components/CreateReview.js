@@ -1,19 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {connect} from "react-redux"
-import {postReview} from "../actions/auth"
+import {postReview} from "../actions/tasks"
 
 export const CreateReview = (props) =>{
 
     const [review , setReview ] = useState({title:'',content:''})
     onsubmit = (e) => {
         e.preventDefault()
-        props.postReview(title, content)
+        props.postReview(review.title, review.content)
     }
 
-    useEffect(()=>{
-
-    },[props])
     
     return(
         <div style =''>
@@ -52,6 +49,6 @@ export const CreateReview = (props) =>{
 }
 
 
-export default connect(mapStateToProps,{postReview})(CreateReview)
+export default connect(null,{postReview})(CreateReview)
 
 
