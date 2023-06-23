@@ -5,7 +5,7 @@ import './App.css';
 import {Provider} from 'react-redux';
 import store from './store'
 import {loaduser} from './actions/auth'
-import { Tasks, CreateReview, Nav, Login, Register } from './components'
+import { Tasks, CreateReview, Nav, Login, Register, VerifyToken } from './components'
 import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
@@ -41,6 +41,7 @@ function App() {
                       <Route exact path = '/register' element = {<Register/>}/>
                       <Route exact path = '/tasks' element = {<Tasks/>}/>
                       <Route exact path = '/create-review' element = {<CreateReview/>}/>
+                      <Route exact path = '/verifytoken' element = {<VerifyToken/>}/>
                     </Routes>
                   </Suspense>
                 </>

@@ -2,7 +2,7 @@ import axios from 'axios'
 import {LOGIN_SUCCESS,LOADING,LOADED,LOGOUT_SUCCESS,REGISTER_SUCCESS,USER_LOADED,TOKEN_RESENT,NEW_EMAIL_SET,TOKEN_VERIFIED,EMAIL_CHANGED} from "./types"
 import {createMessage, returnErrors} from './message_error'
 
-let back_url = 'http://localhost:8000'
+let back_url = 'http://localhost:8000/'
 
 
 export const register=(password,email)=>(dispatch)=>{
@@ -20,7 +20,7 @@ export const register=(password,email)=>(dispatch)=>{
     })
 
     axios
-        .post(back_url+"/api/auth/register",body,config)
+        .post(back_url+"api/auth/register",body,config)
         .then((res)=>{
             dispatch({
                 type:REGISTER_SUCCESS,
@@ -54,7 +54,7 @@ export const login = (email, password) => (dispatch) => {
         type:LOADING
     })
     axios
-        .post("api/auth/login",body,config)
+        .post(back_url +"api/auth/login",body,config)
         .then((res)=>{
             dispatch({
                 type:LOGIN_SUCCESS,
@@ -89,7 +89,7 @@ export const loaduser = () => (dispatch,getState) => {
     }
 
     axios
-        .get("api/auth/user",config)
+        .get(back_url + "api/auth/user",config)
         .then((res)=>{
             dispatch({
                 type:USER_LOADED,
@@ -117,7 +117,7 @@ export const logout = () => (dispatch,getState) => {
     }
 
     axios
-        .post("api/auth/logout",null,config)
+        .post(back_url + "api/auth/logout",null,config)
         .then((res) => {
             dispatch({
                 type:LOGOUT_SUCCESS,
@@ -141,7 +141,7 @@ export const verifytoken = (email,token)=>(dispatch)=>{
 
     const body = JSON.stringify({email,token})
     axios
-        .post('api/verifytoken',body,config)
+        .post(back_url + 'api/verifytoken',body,config)
         .then(()=>{
             dispatch({
                 type:TOKEN_VERIFIED,
@@ -168,7 +168,7 @@ export const resend_token = (email)=>(dispatch)=>{
     const body = JSON.stringify({email})
     
     axios
-        .post('api/resendtoken',body,config)
+        .post(back_url + 'api/resendtoken',body,config)
         .then(()=>{
             dispatch({
                 type:TOKEN_RESENT
@@ -195,7 +195,7 @@ export const change_email = (old_email,new_email,password)=>(dispatch)=>{
 
     const body = JSON.stringify({old_email,new_email,password}) //check axios format 
     axios
-        .post('api/change_email',body,config)
+        .post(back_url + 'api/change_email',body,config)
         .then((res)=>{
             dispatch(createMessage({msg:'Email Set..Please Verify!'}))
             dispatch({
@@ -220,9 +220,9 @@ export const email_token_change = (token) =>(dispatch)=>{//handles auth token pa
     }
 
     config.headers["Authorization"] = `Token ${token}`
-    const hname = window.location.origin
+    // const hname = window.location.origin
     axios
-        .post( hname + '/api/token_change_email',null,config) //added hname here because though it is done autom, in dis case the url is opened up from the email and causes issues
+        .post( back_url + '/api/token_change_email',null,config) //added hname here because though it is done autom, in dis case the url is opened up from the email and causes issues
         .then((res)=>{
             dispatch({
                 type:EMAIL_CHANGED,
@@ -230,7 +230,7 @@ export const email_token_change = (token) =>(dispatch)=>{//handles auth token pa
             })
             dispatch(createMessage({msg:'New Email Verified!'}))
             axios
-                .post(hname + '/api/auth/logoutall',null,config)
+                .post(back_url + '/api/auth/logoutall',null,config)
                 .catch(
                     (err) => {
                         dispatch(returnErrors(err.response.data,err.response.status))
@@ -256,7 +256,7 @@ export const passwordResetLink  = (email)=>(dispatch)=>
     const body = JSON.stringify({email}) 
     
     axios
-        .post('api/passwordResetLink',body,config)
+        .post(back_url + 'api/passwordResetLink',body,config)
         .then((res)=>{
             dispatch(createMessage({msg:'Link sent to email!'}))
             return resolve({status:true})
@@ -280,16 +280,16 @@ export const setNewPassword= (token,password)=>(dispatch)=>
         }
     }
     config.headers["Authorization"] = `Token ${token}`
-    const hname = window.location.origin
+    // const hname = window.location.origin
     const body = JSON.stringify({password})
 
     
     axios
-        .post(hname + '/api/auth/changePassword',body,config)
+        .post(back_url + '/api/auth/changePassword',body,config)
         .then((res)=>{
             dispatch(createMessage({msg:'Password changed successfully!'}))
                 axios
-                .post(hname + '/api/auth/logoutall',null,config)
+                .post(back_url + '/api/auth/logoutall',null,config)
                 .catch(
                     (err) => {
                         dispatch(returnErrors(err.response.data,err.response.status))

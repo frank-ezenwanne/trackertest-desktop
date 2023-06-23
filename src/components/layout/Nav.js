@@ -1,5 +1,5 @@
 import React, {Fragment,useState,useRef} from "react"
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {connect} from "react-redux"
 import {logout} from "../../actions/auth"
 
@@ -8,6 +8,7 @@ function Nav(props){
     const [linecolor,setLinesColor] = useState("")
     const transbar_linenav = useRef()
     const transbar_sidebar = useRef()
+	const navigate = useNavigate()
 
     const lines_white_internal = {
         backgroundColor:linecolor
@@ -45,6 +46,7 @@ function Nav(props){
                         return(
                         <div key = {key} style = {lines_white_internal} className = {line +" "+ "line"} ></div>)})}
                     </div>
+					<span className= 'fs-9 btn btn-success btn-sm' onClick = {()=>navigate(-1)}>GO BACK</span>
 
 					<div id="nav-items-section">
 						{
@@ -75,11 +77,13 @@ function Nav(props){
 					</div>
 					
 				</nav>
+
 				
 			
 				<div ref = {transbar_sidebar} className = "side-bar">
 					{props.isAuthenticated?<Fragment>
 					<div className = "side-bar-combo">
+						
 						<span className = "side-bar-email">{props.email}</span>
 						<span className="lower-side-bar "><Link style = {{textDecoration:'none',color:'white'}} to ='/tasks'>Tasks</Link></span>
 						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/time'>Time</Link></span>
@@ -89,6 +93,7 @@ function Nav(props){
 					</Fragment>:
 					<Fragment>
 					<div className = "side-bar-combo">
+					
 						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/login'>Login</Link></span>
 						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/register'>Register</Link></span>
 						

@@ -1,29 +1,43 @@
 import React, {useState, useEffect} from 'react'
 
 export const CreateReview = () =>{
+
+    
+    useEffect(()=>{
+
+    })
     return(
-        <div>
-            <div>
+        <div style =''>
+                <h3>Write a Review</h3>
                 <form>
                     <div className='form-group mb-2 '>
-                        <label for = "title">
-                            <input type = 'text' id ='title' className='form-control'/>
-                        </label>
+                        <label htmlFor="title" className="form-label">Title</label>
+                        <input onChange = {this.onchange} name = 'title' value= {title} type="text" className="form-control" id="title" placeholder="Enter Title"/>
                     </div>
 
-                    <div className='form-group mb-2'>
-                        <label for = "content">
-                            <input type = 'text' id ='content' className='form-control'/>
-                        </label>
+                    <div className='form-group mb-2 '>
+                        <label htmlFor="content" className="form-label">Content</label>
+                        <input onChange = {this.onchange} name = 'content' value= {content} type="text" className="form-control" id="content" placeholder="Content"/>
                     </div>
 
                     <div>
-                        <button className='btn btn-primary'>Submit</button>
+                        <button className='btn btn-success'>Submit</button>
                     </div>
                 </form>
-            </div>
 
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>S/N</td>
+                                <td>Title</td>
+                                <td>Content</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
 
+                </div>  
         </div>
     )
 }

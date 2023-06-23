@@ -46,7 +46,7 @@ class DailyPlanAPI(APIView):
     def get(self, request, *args, **kwargs):
         plan = DailyPlan.objects.filter(user=request.user)
         serialized = DailyPlanSerializer(plan, many=True)
-        return Response({'plan':serialized.data})
+        return Response({'plans':serialized.data})
 
     def post(self,request, *args, **kwargs):
         serializer = DailyPlanSerializer(data=request.data)
@@ -60,6 +60,7 @@ class DailyPlanAPI(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'plan':serializer.data})
+        
 
 class GetDailyPlan(APIView):
     permission_classes = [IsAuthenticated,]
@@ -82,7 +83,7 @@ class StatsAPI(APIView):
         serializer.save()
         return Response({'timer':serializer.data})
 
-class StatsClick(APIView):
+class StatsClickAPI(APIView):
     permission_classes = [IsAuthenticated,]
 
     def get(self, request, *args, **kwargs):

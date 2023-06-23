@@ -10,7 +10,7 @@ class DailyReview(models.Model):
 
 
 class DailyPlan(models.Model):
-    tasks_num = models.IntegerField()
+    tasks_num = models.IntegerField() 
     complete_hrs = models.IntegerField()
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                               on_delete=models.CASCADE)
@@ -29,7 +29,7 @@ class Stats(models.Model):
         (GMAIL,'Gmail'),
         (SKYPE,'Skype')
             ]
-    activity = models.CharField(max_length=20)
+    activity = models.CharField(max_length=20)  
     time = models.IntegerField() #seconds
     keyboard_taps = models.IntegerField()
     clicked_submit = models.BooleanField(default=False)
