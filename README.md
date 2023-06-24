@@ -1,3 +1,24 @@
+Okay so setting up this is easy. But first this was a rushed one-week project admist doing other things. Aesthetics and some other things are not so fantatsic.
+
+It has two components, the electron app which actually houses a react frontend, and a django backend in the django-app folder
+
+First, create a virtual environment named venv in the django-app folder. You can then install all the django/python requirements with the requirements.txt file.
+
+The reason why I specified the name of the virtual env is because the electron/react frontend, using a bash command, starts the django server automatically with a hard-coded path. I'm sorry I didn't find a better way. The hard coded path can be found in the main.js file (the electron main process) under public.
+
+So you don't need to start the django server independently. After npm installing all the necessary react/electron packages with the package.json, just run **npm run electron:serve** and the electron/react frontend will start itself and also kick start the django backend within the virtual environment named venv directly in the django-app folder
+
+The user reg is with email n pass. I overrode Django's user moodel for that. **Email confirmation with token is such that the email gets sent to a file in the project folder named emails**. I was testing and so did not set up an email for this purpose, hence the file-based testing approach.
+
+In case you just wanna dive in without registration. I created a sample user in the uploaded sqlite db
+email: karmatest@gmail.com
+pass: karma007
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
