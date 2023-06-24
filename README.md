@@ -1,5 +1,7 @@
 Okay so setting up this is easy. But first this was a rushed one-week project admist doing other things. Aesthetics and some other things are not so fantatsic.
 
+This is a very simple CRUD project built to understand how to work with react and electron.
+
 It has two components, the electron app which actually houses a react frontend, and a django backend in the django-app folder
 
 First, create a virtual environment named venv in the django-app folder. You can then install all the django/python requirements with the requirements.txt file.
