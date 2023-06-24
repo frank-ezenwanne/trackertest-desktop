@@ -14,6 +14,8 @@ In case you just wanna dive in without registration. I created a sample user in 
 email: karmatest@gmail.com
 pass: karma007
 
+THANK YOU !!
+
 
 
 
