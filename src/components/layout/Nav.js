@@ -80,14 +80,14 @@ function Nav(props){
 
 				
 			
-				<div ref = {transbar_sidebar} className = "side-bar">
+				<div style={{zIndex:'4'}}ref = {transbar_sidebar} className = "side-bar">
 					{props.isAuthenticated?<Fragment>
 					<div className = "side-bar-combo">
 						
 						<span className = "side-bar-email">{props.email}</span>
 						<span className="lower-side-bar "><Link style = {{textDecoration:'none',color:'white'}} to ='/tasks'>Tasks</Link></span>
-						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/time'>Time</Link></span>
-						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/stats'>Stats</Link></span>
+						{/* <span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/time'>Time</Link></span>
+						<span className = "lower-side-bar"><Link style = {{textDecoration:'none',color:'white'}} to ='/stats'>Stats</Link></span> */}
 						<span onClick = {()=>{props.logout()}} className = "text-white lower-side-bar">Logout</span>
 					</div>
 					</Fragment>:

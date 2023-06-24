@@ -20,10 +20,10 @@ class DailyReviewAPI(APIView):
     def post(self,request, *args, **kwargs):
         serializer = DailyReviewSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save(user=request.user)
         return Response({'review':serializer.data})
 
-    def update(self, request, pk, *args, **kwargs):
+    def put(self, request, pk, *args, **kwargs):
         review = DailyReview.objects.get(id=pk)
         serializer = DailyReviewSerializer(instance = review, data=request.data)
         serializer.is_valid(raise_exception=True)

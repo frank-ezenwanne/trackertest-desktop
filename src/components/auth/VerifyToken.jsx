@@ -57,7 +57,7 @@ const VerifyToken = (props) =>{
                     <button type="submit" className='btn btn-success'>Activate</button>
 
                     <div id="login-bottom-options">
-                        <div className="reg-link"><Link to="/emailchange"> Change Email? ({props.user.email}) </Link> </div>
+                        {/* <div className="reg-link"><Link to="/emailchange"> Change Email? ({props.user.email}) </Link> </div> */}
                         <div onClick={resend_token} className="fs-9 clickable reg-link"> Re-request Token?</div>
 
                     </div>

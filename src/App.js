@@ -5,7 +5,7 @@ import './App.css';
 import {Provider} from 'react-redux';
 import store from './store'
 import {loaduser} from './actions/auth'
-import { Tasks, CreateReview, Nav, Login, Register, VerifyToken } from './components'
+import { Tasks, CreateReview, Nav, Login, Register, VerifyToken, ReviewList,PrivateRoute, ReviewDetail,ReviewEdit } from './components'
 import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
@@ -37,10 +37,19 @@ function App() {
                 <>
                   <Suspense fallback={<div>Loading Up...</div>}>
                     <Routes>
+
+                    <Route element = {<PrivateRoute/>}>
+                        <Route exact path = '/review-list' element = {<ReviewList/>}/>
+                        <Route exact path = '/create-review' element = {<CreateReview/>}/>
+                        <Route exact path = '/tasks' element = {<Tasks/>}/>
+                        <Route exact path = '/review-detail/:id' element = {<ReviewDetail/>}/>
+                        <Route exact path = '/review-edit/:id' element = {<ReviewEdit/>}/>
+                    </Route>
+
                       <Route exact path = '/' element = {<Login/>}/>
                       <Route exact path = '/register' element = {<Register/>}/>
-                      <Route exact path = '/tasks' element = {<Tasks/>}/>
-                      <Route exact path = '/create-review' element = {<CreateReview/>}/>
+                      
+                      
                       <Route exact path = '/verifytoken' element = {<VerifyToken/>}/>
                     </Routes>
                   </Suspense>

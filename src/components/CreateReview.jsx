@@ -1,14 +1,14 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect} from "react-redux"
 import {postReview} from "../actions/tasks"
+import { useNavigate } from 'react-router-dom'
 
 export const CreateReview = (props) =>{
-    
    const [review , setReview ] = useState({title:'',content:''})
-   console.log(props.postReview,9908)
+   const navigate = useNavigate()
+
    const onsubmit = (e) => {
         e.preventDefault()
-        console.log(postReview,998)
         props.postReview(review.title, review.content)
     }
 
@@ -17,10 +17,16 @@ export const CreateReview = (props) =>{
             [e.target.name] : e.target.value
         })
     }
+
+    useEffect(()=>{
+        if(props.reviewUpdated === true){
+            navigate(`/review-detail/${props.review.id}`)
+        }
+    },[props.reviewUpdated])
     
     return(
-        <div style= {{backgroundColor:'silver',marginTop:'10%'}} className=' card w-75 ms-4'>
-                <h3>Write a Review</h3>
+        <div style= {{backgroundColor:'rgb(245,245,245)',marginTop:'10%'}} className=' card w-75 ms-4'>
+                <h3 className='text-success'>Write a Review</h3>
                 <form className= 'p-4' onSubmit={onsubmit}>
                     <div className='form-group mb-2 '>
                         <label htmlFor="title" className="form-label">Title</label>
@@ -41,6 +47,12 @@ export const CreateReview = (props) =>{
     )
 }
 
+const mapStateToProps = (state) => ({
+    review:state.tasks.review,
+    reviewUpdated:state.tasks.reviewUpdated
+})
 
-export default connect(null,{postReview})(CreateReview)
+export default connect(mapStateToProps,{postReview})(CreateReview)
+
+
 

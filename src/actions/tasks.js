@@ -27,7 +27,7 @@ export const fetchReviews = () =>(dispatch, getState)=>{
     }
 
     axios
-    .get(back_url +'api/dailyreview/',null,config)
+    .get(back_url +'api/dailyreview/',config)
     .then((res)=>{
         dispatch({
             type:ALL_REVIEWS_FETCHED,
@@ -55,7 +55,7 @@ export const getOneReview = (pk) =>(dispatch, getState)=>{
         config.headers["Authorization"] = `Token ${token}`  
     }
     axios
-    .get(back_url +`api/getreview/${pk}`,null,config)
+    .get(back_url +`api/getreview/${pk}`,config)
     .then((res)=>{
         dispatch({
             type:REVIEW_RETRIEVED,
@@ -70,7 +70,7 @@ export const getOneReview = (pk) =>(dispatch, getState)=>{
     )
 }
 
-export const postReview = (title,content)=>(dispatch, getState)=>{
+export const postReview = (title,content)=>(dispatch,getState)=>{
     const config={
         headers:{
             "Content-Type":"application/json"
@@ -111,7 +111,7 @@ export const updateReview = (pk,title,content)=>(dispatch, getState)=>{
     }
     const body = JSON.stringify({title,content}) 
     axios
-    .post(back_url +`api/updatereview/${pk}`,body,config)   
+    .put(back_url +`api/updatereview/${pk}/`,body,config)   
     .then((res)=>{                                       
         dispatch({
             type:REVIEW_UPDATED,
@@ -169,7 +169,7 @@ export const getOnePlan = (pk) =>(dispatch, getState)=>{
         config.headers["Authorization"] = `Token ${token}`
     }
     axios
-    .get(back_url +`api/dailyplan/${pk}`,null,config)  
+    .get(back_url +`api/dailyplan/${pk}/`,null,config)  
     .then((res)=>{
         dispatch({
             type:PLAN_RETRIEVED,
@@ -225,7 +225,7 @@ export const updatePlan = (pk,tasks_num,complete_hrs)=>(dispatch, getState)=>{
     }
     const body = JSON.stringify({tasks_num,complete_hrs}) 
     axios
-    .post(back_url +`api/updateplan/${pk}`,body,config)   
+    .post(back_url +`api/updateplan/${pk}/`,body,config)   
     .then((res)=>{
         dispatch({
             type:PLAN_UPDATED,

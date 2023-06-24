@@ -4,7 +4,7 @@ from .models import DailyReview, DailyPlan, Stats
 class DailyReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailyReview
-        fields = '__all__'
+        fields = ('id','title','content','date')
 
 class DailyPlanSerializer(serializers.ModelSerializer):
     class Meta:

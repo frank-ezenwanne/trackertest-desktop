@@ -22,6 +22,7 @@ const initialState = {
     onestat:'',
     plan:'',
     plans:'',
+    reviewUpdated:false
 
 }
 
@@ -34,11 +35,18 @@ export default function(state=initialState,action){
             }
 
         case REVIEW_UPDATED:
-        case REVIEW_RETRIEVED:
         case REVIEW_POSTED:
             return {
                 ...state,
-                review:action.payload.review
+                review:action.payload.review,
+                reviewUpdated:true
+            }
+
+        case REVIEW_RETRIEVED:
+            return{
+                ...state,
+                review:action.payload.review,
+                reviewUpdated:false
             }
 
         case ALL_STATS_FETCHED:
@@ -78,6 +86,9 @@ export default function(state=initialState,action){
                 ...state,
                 plans:action.payload.plans
             }
+
+        default:
+            return state
 
         
     }

@@ -15,22 +15,22 @@ const ItemComponent = (props)=>{
 export const Tasks = () => {
     const navigate = useNavigate()
     return(
-        <div className='m-4'>
+        <div style={{margin:'8%'}} >
             <h3 className='d-flex justify-content-start'>Tasks</h3>
             <ul className='list-group rounded-1'>
                 <li onClick = {()=>{navigate('/create-review')}} className='list-group-item list-group-item-action'>
                     <ItemComponent text= 'Create Daily Review' />
                 </li>
                 
-                <li className='list-group-item list-group-item-action'>
-                    <ItemComponent text= 'Daily Proposal' />
+                <li onClick = {()=>{navigate('/review-list')}} className='list-group-item list-group-item-action'>
+                    <ItemComponent text= 'View Reviews' />
                 </li>
 
-                <li className='list-group-item list-group-item-action'>
+                <li onClick = {()=>{window.indexBridge.loadGmail()}} className='list-group-item list-group-item-action'>
                     <ItemComponent text= 'Gmail' />
                 </li>
 
-                <li className='list-group-item list-group-item-action'>
+                <li onClick = {()=>{window.indexBridge.loadSkype()}} className='list-group-item list-group-item-action'>
                     <ItemComponent text= 'Skype' />
                 </li>
                             
