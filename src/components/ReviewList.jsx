@@ -28,7 +28,7 @@ export const ReviewList = (props) =>{
                     reviewList.map((review,index)=>(
                         <li key={index} onClick = {()=>{navigate(`/review-detail/${review.id}`)}} className='list-group-item list-group-item-action'>
                             <div>
-                                <div><Moment format="LLL">
+                                <div className='mb-2'><Moment format="LLL">
                                     {review?.date}
                                 </Moment></div>
                             </div>

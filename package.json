@@ -35,7 +35,7 @@
     "test": "react-scripts test",
     "electron:serv": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm:electron\"",
     "electron:serve": "nodemon --watch ../public/main.js -L --exec npm run electron:serv",
-    "electron:build": "--exec python --version",
+    "electron:build": "npm build && electron-builder -c.extraMetadata.main=build/main.js",
     "electron": "wait-on http://127.0.0.1:3000 && electron ."
   },
   "eslintConfig": {
